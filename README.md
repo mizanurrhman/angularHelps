@@ -131,13 +131,59 @@ QueryList Method
   protected IEnumerable<T> QueryList<T>(string query)
         {
             IList<T> entities;
-
             using (var connection = Connection)
                 entities = connection.Query<T>(query).ToList();
-
             return entities;
         }
 ```
 
+#### Error `cannot Get /`
+* Go Inside ClientApp folder run `PowerShell` enter command `ng build` if can not run this script error go link provided and see the solution, todays case `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` then run again `ng build`
+
+#### Convert Specific Date format  
+
+```ts
+
+let oD = otherDate.split("/", 3); //'07-01-2021' dd-MM-yyyy
+    let day = Number(oD[0]);
+    let mon = Number(oD[1]) - 1;
+    let yr =  Number(oD[2]);
+    let othrDay = new Date(yr, mon, day);
+
+    console.log(othrDay);
+    // OR 
+    var a = otherDate.split('/');
+    var birthDate = new Date(Number(a[2]), Number(a[1]) - 1, Number(a[0]));
+
+    console.log('anotherDate', birthDate);
+```
+OutPut `Thu Jan 07 2021 00:00:00 GMT+0800 (Singapore Standard Time)`
+
+### Dropdown event with condition
+```ts
+this.userForm.get('ddlReason').setValue(this.reason.find(x => x.CODE == this.reasonCode));
+switch (this.reasonCode) {
+  case '01':
+    this.donReqNoVisible = true;
+    this.t12201Service.getDonReqNoList().subscribe((success: any) => {
+      this.donReqNoList = success;
+      this.userForm.get('ddlDonReqNo').setValue(this.donReqNoList.find(x => x.DON_REQNO == this.donorReqNo));
+    });
+    break;
+  case '05':
+  case '06':
+    this.otherPatVisible = true;
+    this.userForm.get('txtOtherPatNo').setValue(success["T_OTHER_PAT_NO"]);
+    this.userForm.get('txtOtherPatName').setValue(success["T_OTHER_PAT_NAME"]);
+    this.donReqNoVisible = false;
+    break;
+  default:
+    this.otherPatVisible = false;
+    this.userForm.get('txtOtherPatNo').setValue('');
+    this.userForm.get('txtOtherPatName').setValue('');
+    this.donReqNoVisible = false;
+    this.userForm.get('ddlDonReqNo').setValue('');
+}
+```
 
 
