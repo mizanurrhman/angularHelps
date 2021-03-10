@@ -159,6 +159,9 @@ let oD = otherDate.split("/", 3); //'07-01-2021' dd-MM-yyyy
 ```
 OutPut `Thu Jan 07 2021 00:00:00 GMT+0800 (Singapore Standard Time)`
 
+> format date `String.Format("{0:0.00}"`
+
+
 ### Dropdown event with condition
 ```ts
 this.userForm.get('ddlReason').setValue(this.reason.find(x => x.CODE == this.reasonCode));
@@ -226,6 +229,11 @@ public IEnumerable<dynamic> GetAllMessage(string T_MSG_CODE, string Language)
  
  ```ts
  this.messageService.add({ severity: 'info', summary: 'Info!', detail: this.messages.find(x => x.CODE == 'N0057').TEXT });
+```
+>  **`ngStyle condition`**
+
+```html
+<span [ngStyle]="{'color': (colorStatus.charAt(0) === 'W') ? 'Gray':'white', 'text-align': 'center', 'vertical-align': 'middle', 'line-height': '50px', 'font-size': '30px', 'display': 'block'}">{{colorStatus.charAt(0)}}</span>
 ```
 
 
