@@ -81,11 +81,12 @@ call from a control `(onChange)="reasonClick($event)"`
 #### make a div circle with backgound fill color
 ```html
  <td rowspan="2">
-              <div [ngStyle]="{ 'background-color' :  colorStatus, 'display':  'inline-block', 'height':'50px' ,'width':'50px','border-radius': '50%','border':'solid lightgray 1px' }">
-              </div>
- </td>
+                <div [ngStyle]="{ 'background-color':colorStatus, 'display':  'inline-block', 'height':'50px' ,'width':'50px','border-radius': '50%','border':'solid lightgray 1px' }">
+                  <span style="color:white; text-align: center; vertical-align: middle; line-height: 50px; font-size: 30px; display: block;">{{colorStatus.charAt(0)}}</span>
+                </div>
 ```
-value colorStatus come from .ts file `colorStatus: string = 'GREEN';`
+ `colorStatus: string = 'GREEN'`
+![OutPut](relative/path/to/dr.jpg?raw=true "OutPut")
 
 #### Populate a dropdownLis from Database
 html Code 
