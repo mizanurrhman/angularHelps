@@ -84,9 +84,15 @@ call from a control `(onChange)="reasonClick($event)"`
                 <div [ngStyle]="{ 'background-color':colorStatus, 'display':  'inline-block', 'height':'50px' ,'width':'50px','border-radius': '50%','border':'solid lightgray 1px' }">
                   <span style="color:white; text-align: center; vertical-align: middle; line-height: 50px; font-size: 30px; display: block;">{{colorStatus.charAt(0)}}</span>
                 </div>
+  
 ```
+>  **`ngStyle condition`**
+```html
+<span [ngStyle]="{'color': (colorStatus.charAt(0) === 'W') ? 'Gray':'white', 'text-align': 'center', 'vertical-align': 'middle', 'line-height': '50px', 'font-size': '30px', 'display': 'block'}">{{colorStatus.charAt(0)}}</span>
+```
+
  `colorStatus: string = 'GREEN'`
-![OutPut](relative/path/to/dr.jpg?raw=true "OutPut")
+![OutPut](/dr.jpg?raw=true "OutPut")
 
 #### Populate a dropdownLis from Database
 html Code 
@@ -231,11 +237,7 @@ public IEnumerable<dynamic> GetAllMessage(string T_MSG_CODE, string Language)
  ```ts
  this.messageService.add({ severity: 'info', summary: 'Info!', detail: this.messages.find(x => x.CODE == 'N0057').TEXT });
 ```
->  **`ngStyle condition`**
 
-```html
-<span [ngStyle]="{'color': (colorStatus.charAt(0) === 'W') ? 'Gray':'white', 'text-align': 'center', 'vertical-align': 'middle', 'line-height': '50px', 'font-size': '30px', 'display': 'block'}">{{colorStatus.charAt(0)}}</span>
-```
 
 
 
