@@ -79,19 +79,15 @@ call from a control `(onChange)="reasonClick($event)"`
 
 
 #### make a div circle with backgound fill color
+`colorStatus: string = 'GREEN'`
 ```html
  <td rowspan="2">
                 <div [ngStyle]="{ 'background-color':colorStatus, 'display':  'inline-block', 'height':'50px' ,'width':'50px','border-radius': '50%','border':'solid lightgray 1px' }">
                   <span style="color:white; text-align: center; vertical-align: middle; line-height: 50px; font-size: 30px; display: block;">{{colorStatus.charAt(0)}}</span>
                 </div>
-  
-```
->  **`ngStyle condition`**
-```html
+  ngStyle condition
 <span [ngStyle]="{'color': (colorStatus.charAt(0) === 'W') ? 'Gray':'white', 'text-align': 'center', 'vertical-align': 'middle', 'line-height': '50px', 'font-size': '30px', 'display': 'block'}">{{colorStatus.charAt(0)}}</span>
 ```
-
- `colorStatus: string = 'GREEN'`
 ![OutPut](https://github.com/mizanurrhman/angularHelps/blob/main/dr.JPG "OutPut")
 
 #### Populate a dropdownLis from Database
