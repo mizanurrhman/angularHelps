@@ -92,7 +92,7 @@ call from a control `(onChange)="reasonClick($event)"`
 ```
 
  `colorStatus: string = 'GREEN'`
-![OutPut](/dr.jpg?raw=true "OutPut")
+![OutPut](https://github.com/mizanurrhman/angularHelps/blob/main/dr.JPG "OutPut")
 
 #### Populate a dropdownLis from Database
 html Code 
