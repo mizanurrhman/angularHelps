@@ -1,8 +1,11 @@
 # Angular Project Helps
+> [Angualr CheatShit]
 ![Angualr CheatShit](https://github.com/mizanurrhman/angularHelps/blob/main/ngCheatShit.png "OutPut")
 
-![Angualr DataBinding](https://github.com/mizanurrhman/angularHelps/blob/main/ngDataBinding.jpg"Data Binding")
+>[*Angualr DataBinding*]
+![Angualr DataBinding](https://github.com/mizanurrhman/angularHelps/blob/main/ngDataBinding.jpg "Data Binding")
 
+[Angualr DataBinding]
 ![Angualr Structural Directive](https://github.com/mizanurrhman/angularHelps/blob/main/ngStructuralDirective.png "Structural Directive")
  ### Example of Ternary Operator
 ```
