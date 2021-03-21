@@ -1,8 +1,8 @@
 # Angular Project Helps
-> [Angualr CheatShit]
+> Angualr CheatShit
+
 ![Angualr CheatShit](https://github.com/mizanurrhman/angularHelps/blob/main/ngCheatShit.png "OutPut")
 
->[*Angualr DataBinding*]
 ![Angualr DataBinding](https://github.com/mizanurrhman/angularHelps/blob/main/ngDataBinding.jpg "Data Binding")
 
 [Angualr DataBinding]
