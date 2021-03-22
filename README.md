@@ -9,16 +9,11 @@
 
 ![DropdownList](https://github.com/mizanurrhman/angularHelps/blob/main/OHelp/populateDropdown.md "Propulate Dropdown Data From DB")
 
+|![Angualr CheatShit](https://github.com/mizanurrhman/angularHelps/blob/main/Images/ngCheatShit.png "OutPut") | ![Angualr DataBinding](https://github.com/mizanurrhman/angularHelps/blob/main/Images/ngDataBinding.jpg"Data Binding") | ![Angualr Structural Directive](https://github.com/mizanurrhman/angularHelps/blob/main/Images/ngStructuralDirective.png "Structural Directive")|
+--|-----|----|
+| | |
 
-> Angualr CheatShit
-
-![Angualr CheatShit](https://github.com/mizanurrhman/angularHelps/blob/main/ngCheatShit.png "OutPut")
-
-![Angualr DataBinding](https://github.com/mizanurrhman/angularHelps/blob/main/ngDataBinding.jpg "Data Binding")
-
-![Angualr Structural Directive](https://github.com/mizanurrhman/angularHelps/blob/main/ngStructuralDirective.png "Structural Directive")
-
- ### Example of Ternary Operator
+> Example of Ternary Operator
 ```
 const person = {name: 'Becky',gender: null}
 ```
@@ -27,35 +22,10 @@ const person = {name: 'Becky',gender: null}
  Value is not present 
 `const gender = person.gender ?? 'Unknown gender'` OutPut: Unknown gender 
    
-  ### Formating Date field
+> Formating Date field
   ```ts
   this.userForm.get('inputValue').setValue(new Date(Date.parse(datafield)).toLocaleDateString("en-GB", { year: 'numeric', month: '2-digit', day: '2-digit' }));
 ```
-#### Difference Between Two dates in Days 
- ```ts
-onDateDifference(fromDate: Date, toDate: Date) {
-    let diffInTime = fromDate.getTime() - toDate.getTime();
-    let diffInDays = Math.round(diffInTime / (1000 * 3600 * 24));  
-    return diffInDays; 
-  }
-```
- Call the function 
- > `onDateDifference(new Date('02/03/2021'), new Date('23/02/2021'))` Out Put : `7`
- 
-#### Date Past and Future from specific date
-
-```ts
-onDatePastFuture(startingDate: Date, rangeDay: any) {
-    let date = startingDate;
-    date.setDate(date.getDate() + rangeDay);
-    let datePastFuture = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
-    return datePastFuture;
-  }
-  ```
-  Call the function for 57 days past and future from 23/02/2021
-  > `onDatePastFuture(new Date('23/2/2021'),57);`   OutPut: 21/4/2021 
-  > `onDatePastFuture(new Date(23/2/2021),(-57));` OutPut: 28/12/2020
-  
   
 #### condition in html control 
 ```html
@@ -108,55 +78,6 @@ call from a control `(onChange)="reasonClick($event)"`
 ```
 ![OutPut](https://github.com/mizanurrhman/angularHelps/blob/main/dr.JPG "OutPut")
 
-#### Populate a dropdownLis from Database
-html Code 
-```html
-<p-dropdown inputId="ddlReason" formControlName="ddlReason" (onChange)="reasonClick($event)" [options]="reason" optionLabel="NAME" [filter]="true" [resetFilterOnHide]="true" [style]="{'width':'100%'}"></p-dropdown>
-```
-` reason: any[];` data stored this list come from DB and from this list dropdown will bind data to `[options]="reason"` option propery
-TypeScript
-```ts
-this.t12201Service.getAllReason()
-      .subscribe((success: any) => {
-        this.reason = success;
-        this.reason.splice(0, 0, { CODE: '', NAME: '' });
-      });
-```
-call service `this.t12201Service.getAllReason()` from `service.ts`
-```ts
- getAllReason() {
-    return this.http.get('api/t12201/getAllReason').pipe(map(response => response));
-  }
-```
-service call controller 
-```cs
-[HttpGet("/api/t12201/getAllReason")]
-        public IActionResult GetAllReason()
-        {
-            var auth = t12201DAL.GetRolePermission("T12201", HttpContext.Session.GetString("ROLE_CODE"))?.T_QRY_ACC.ToString();
-            if (auth is null || auth != "1") return Unauthorized();
-            var data = t12201DAL.GetAllReason(HttpContext.Session.GetString("USER_LANG"));
-            return Ok(data);
-        }
-```
-get data from DAL called by controller 
-```cs
-public IEnumerable<dynamic> GetAllReason(string lang)
-        {
-            var query = $@"SELECT T_DOTN_RSN_CODE CODE, T_LANG{lang}_NAME NAME  FROM T12006 ORDER BY 2 ";
-            return QueryList<dynamic>(query);
-        }
-```
-QueryList Method
-```cs
-  protected IEnumerable<T> QueryList<T>(string query)
-        {
-            IList<T> entities;
-            using (var connection = Connection)
-                entities = connection.Query<T>(query).ToList();
-            return entities;
-        }
-```
 
 #### Error `cannot Get /`
 * Go Inside ClientApp folder run `PowerShell` enter command `ng build` if can not run this script error go link provided and see the solution, todays case `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` then run again `ng build`
