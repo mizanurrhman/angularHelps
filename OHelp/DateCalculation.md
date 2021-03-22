@@ -1,6 +1,7 @@
 > Formating Date field
   ```ts
-  this.userForm.get('inputValue').setValue(new Date(Date.parse(datafield)).toLocaleDateString("en-GB", { year: 'numeric', month: '2-digit', day: '2-digit' }));
+  this.userForm.get('inputValue').setValue(new Date(Date.parse(datafield))
+  .toLocaleDateString("en-GB", { year: 'numeric', month: '2-digit', day: '2-digit'}));
 ```
 
 > Difference Between Two dates in Days 
