@@ -1,5 +1,5 @@
->> **`*ngIF` , `*ngStyle`** Condition & Fill a div with Text and background color**
-> **HideNShow Control & Dropdown Click Event **
+> Condition **`*ngIF` , `*ngStyle`** & Fill a div with Text and background color**
+> *HideNShow Control & Dropdown Click Event *
  
 ```html
 <tr *ngIf="donReqNoVisible">
