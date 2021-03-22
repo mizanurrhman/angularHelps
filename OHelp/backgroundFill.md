@@ -1,4 +1,5 @@
-> ** BackgroundFill & `*ngIF` , `*ngStyle`** Condition 
+> **`*ngIF` , `*ngStyle`** Condition & Fill a div with Text and background color**
+>> **HideNShow Control & Dropdown Click Event **
  
 ```html
 <tr *ngIf="donReqNoVisible">
@@ -16,7 +17,10 @@
 ```ts
  otherPatVisible: boolean = false;
  donReqNoVisible: boolean = false;
+ ```
+ > **Dropdown Change Event**  `(onChange)="reasonClick($event)"`
  
+ ```ts
 reasonClick(event) {
     let reasonCode = event.value.CODE;
     switch (reasonCode) {
@@ -35,9 +39,8 @@ reasonClick(event) {
         break;
     }
 ```
-call from a control `(onChange)="reasonClick($event)"`
 
-
+> **Fill a Div with Text & color**
 
 `colorStatus: string = 'GREEN'`
 
