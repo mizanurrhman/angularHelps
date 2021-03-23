@@ -1,4 +1,5 @@
-**HTML** *Primeng*
+> **HTML** *Primeng*
+
 ```html
 <div id="main">
   <ngx-loading [show]="loading"></ngx-loading>
@@ -168,8 +169,9 @@
 </div>
 
 ```
+![OutPut](https://github.com/mizanurrhman/angularHelps/blob/main/Images/dr.JPG?raw=true)
 
-**Component Typescript**
+> **Component Typescript**
 ```ts
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
@@ -665,7 +667,7 @@ export class T12201Component implements OnInit {
 
 }
 ```
-**Service Typescript**
+> **Service Typescript**
 ```ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -711,7 +713,7 @@ export class T12201Service {
 }
 
 ```
-**Controller CSharp**
+> **Controller CSharp**
 ```cs
 using BloodBankDAL.Transaction;
 using Microsoft.AspNetCore.Http;
@@ -813,7 +815,7 @@ namespace BloodBank.Controllers.Transaction
 }
 
 ```
-**DAL CSharp**
+> **DAL CSharp**
 ```cs
 using Microsoft.Extensions.Configuration;
 using System;
@@ -898,18 +900,18 @@ namespace BloodBankDAL.Transaction
             var query = @"SELECT LPAD(DONATION_NO_SEQ.NEXTVAL,8,'0') T_DONATION_SEQ_NO FROM DUAL";
             return QueryString(query);
         }
-        public bool InsertT12017(string T_ENTRY_USER, string T_PAT_NO, string T_DONATION_DATE, string T_ARRIVAL_DATE, string T_ARRIVAL_TIME, string T_BLOOD_DONATION_STATUS, string T_DONOR_NTNLTY_ID, string T_DOTN_RSN_CODE, string T_EPISODE_NO, string T_OTHER_PAT_NO, string T_DON_REQNO, string T_OTHER_PAT_NAME, string T_PAT_TYPE, string T_SITE_CODE)
+        public bool InsertT12017(string T_ENTRY_USER, string T_PAT_NO, string T_DONATION_DATE, string T_ARRIVAL_DATE, string T_ARRIVAL_TIME, string   T_BLOOD_DONATION_STATUS, string T_DONOR_NTNLTY_ID, string T_DOTN_RSN_CODE, string T_EPISODE_NO, string T_OTHER_PAT_NO, string T_DON_REQNO, string T_OTHER_PAT_NAME, string T_PAT_TYPE, string T_SITE_CODE)
         {
             var donationSeqNo = GetDonationSeqNo();
-            var command = $@"INSERT INTO T12017(T_ENTRY_USER,T_ENTRY_DATE, T_PAT_NO,T_DONATION_SEQ_NO,T_DONATION_NO,T_DONATION_DATE,T_ARRIVAL_DATE,T_ARRIVAL_TIME,T_BLOOD_DONATION_STATUS,T_DONOR_NTNLTY_ID,T_DOTN_RSN_CODE,T_EPISODE_NO,T_OTHER_PAT_NO,T_DON_REQNO,T_OTHER_PAT_NAME,T_FORM_NAME,T_PAT_TYPE,T_SITE_CODE)
-            VALUES ('{T_ENTRY_USER}', TRUNC(SYSDATE), '{T_PAT_NO}','{donationSeqNo}','{donationSeqNo}',TRUNC(SYSDATE),TRUNC(SYSDATE),TO_CHAR(SYSDATE,'HH24MI'),'{T_BLOOD_DONATION_STATUS}','{T_DONOR_NTNLTY_ID}','{T_DOTN_RSN_CODE}','{T_EPISODE_NO}','{T_OTHER_PAT_NO}','{T_DON_REQNO}','{T_OTHER_PAT_NAME}','T12201','{T_PAT_TYPE}','{T_SITE_CODE}')";
-            return Command(command);
+        var command = $@"INSERT INTO T12017(T_ENTRY_USER,T_ENTRY_DATE,        T_PAT_NO,T_DONATION_SEQ_NO,T_DONATION_NO,T_DONATION_DATE,T_ARRIVAL_DATE,T_ARRIVAL_TIME,T_BLOOD_DONATION_STATUS,T_DONOR_NTNLTY_ID,T_DOTN_RSN_CODE,T_EPISODE_NO,T_OTHER_PAT_NO,T_DON_REQNO,T_OTHER_PAT_NAME,T_FORM_NAME,T_PAT_TYPE,T_SITE_CODE)
+ VALUES('{T_ENTRY_USER}',TRUNC(SYSDATE),'{T_PAT_NO}','{donationSeqNo}','{donationSeqNo}',TRUNC(SYSDATE),TRUNC(SYSDATE),TO_CHAR(SYSDATE,'HH24MI'),'{T_BLOOD_DONATION_STATUS}','{T_DONOR_NTNLTY_ID}','{T_DOTN_RSN_CODE}','{T_EPISODE_NO}','{T_OTHER_PAT_NO}','{T_DON_REQNO}','{T_OTHER_PAT_NAME}','T12201','{T_PAT_TYPE}','{T_SITE_CODE}')";
+return Command(command);
         }   
     }
 }
 ```
 
-**DataBase DAL**
+> **DataBase DAL**
 ```cs
 using Dapper;
 using Microsoft.Extensions.Configuration;
@@ -1008,3 +1010,379 @@ namespace BloodBankDAL
 }
 
 ```
+
+> **Header Component**
+> *html Component*
+
+```html
+<link rel="stylesheet" [href]="sanitizer.bypassSecurityTrustResourceUrl(css)" />
+<div id="topbarBg">
+  <div id="datePanel">
+    <img src="images/calender.png" alt="calender" />
+    <span class="todayg">{{ todayG }}</span>
+    &brvbar;
+    <span class="todayh">{{ todayH }}</span>
+    <span class="formInfo">{{ formInfo }}</span>
+  </div>
+</div>
+<div id="topbarSeparator"></div>
+<div id="headerBg">
+  <div id="logo">
+    <img src="images/ministrylogo.png" alt="logo" height="62" width="80" />
+  </div>
+  <div id="user">
+    <img src="images/user.png" id="usericon" alt="user icon" />
+  </div>
+  <div id="userName">
+    <span>{{ userName }}</span>
+  </div>
+  <div id="title">
+    <span class="red">برنامج الخدمة الصحية بمقابل</span>
+  </div>
+</div>
+<p-contextMenu *ngIf="userRole==='0001'" [global]="true" [model]="labelMenu"></p-contextMenu>
+<p-dialog header="Change Label" [(visible)]="display" modal="modal" [width]="600">
+  <p-table #dt [value]="data" paginator="true" [rows]="10" pageLinks="10">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Arabic</th>
+        <th>English</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData>
+      <tr>
+        <td pEditableColumn>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input type="text" [(ngModel)]="rowData.T_LANG1_TEXT">
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{rowData.T_LANG1_TEXT}}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td pEditableColumn>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input type="text" [(ngModel)]="rowData.T_LANG2_TEXT">
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{rowData.T_LANG2_TEXT}}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p-footer>
+    <button type="button" pButton icon="pi pi-check" (click)="onSaveClick()" label="Save"></button>
+    <button type="button" pButton icon="pi pi-times" (click)="display=false" label="Cancel"></button>
+  </p-footer>
+</p-dialog>
+
+```
+> **Component TS**
+```ts
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { MenuItem } from 'primeng/api';
+import { CommonService } from '../../services/common.service';
+import { FormService } from '../../services/form.service';
+
+@Component({
+  selector: 'common-header',
+  templateUrl: 'header.component.html',
+  styles: ['::ng-deep .ui-menuitem-link { text-decoration: none }']
+})
+export class HeaderComponent implements OnInit {
+  @Input() formCode: string;
+  @Output() versionLoaded: EventEmitter<string> = new EventEmitter<string>();
+  @Output() labelLoaded = new EventEmitter();
+  @Output() permissionLoaded = new EventEmitter();
+  
+  data: any[];
+  private labelMenu: MenuItem[];
+  display = false;
+
+  userName: string;
+  userLang: string;
+  userRole: string;
+
+  css: string;
+
+  todayG: string = new Date().toLocaleDateString("en-GB", { year: 'numeric', month: '2-digit', day: '2-digit' });
+  todayH: string = new Date().toLocaleDateString("ar-SA", { year: 'numeric', month: '2-digit', day: '2-digit' });
+  formInfo: string;
+  version: string;
+
+  constructor(public sanitizer: DomSanitizer, private commonService: CommonService, private formService: FormService) {
+  }
+
+  ngOnInit(): void {
+    this.labelMenu = [{
+      label: 'Change Label', command: (event) => {
+        this.commonService.editFormLabel(this.formCode)
+          .subscribe((success: any) => {
+            this.data = success;
+            this.display = true;
+          },
+            error => {
+              console.log(error.error.msg);
+            });
+      }
+    }];
+
+    this.userName = localStorage.getItem('userName') as string;
+    this.userLang = localStorage.getItem('userLang') as string;
+    this.userRole = localStorage.getItem('userRole') as string;
+
+    this.css = this.userLang == '1' ? 'css/pagearb.css' : 'css/pageeng.css';
+
+    this.formService.getFormInfo(this.formCode)
+      .subscribe((success: any) => {
+        this.formInfo = this.formCode + ' - ' + (this.userLang == '1' ? success.T_LANG1_NAME : success.T_LANG2_NAME);
+        this.versionLoaded.emit(success.T_VERSION_NO);
+      },
+        error => {
+          console.log(error.error.msg);
+        });
+
+    this.formService.getFormLabel(this.formCode)
+      .subscribe((success: any) => {
+        this.labelLoaded.emit(success);
+      },
+        error => {
+          console.log(error.error.msg);
+        });
+
+    this.formService.getFormPermission(this.formCode)
+      .subscribe((success: any) => {
+       this.permissionLoaded.emit(success);
+      },
+        error => {
+          console.log(error.error.msg);
+        });
+  }
+
+  onSaveClick() {
+    this.commonService.updateFormLabel(this.data)
+      .subscribe((success: any) => {
+        this.labelLoaded.emit(success);
+      },
+        error => {
+          console.log(error);
+        });
+    this.display = false;
+  }
+}
+
+```
+> **Common Service**
+```ts
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators'
+import * as $ from "jquery";
+
+@Injectable()
+export class CommonService {
+  constructor(private http: HttpClient) {
+  }
+
+  editFormLabel(formCode: string) {
+    return this.http.get('api/common/editFormLabel', { params: { formCode: formCode } }).pipe(map(response => response));
+  }
+  updateFormLabel(t95200: any[]) {
+    return this.http.post('api/common/updateFormLabel', t95200).pipe(map(response => response));
+  }
+  getAllZone() {
+    return this.http.get('api/common/getAllZone').pipe(map(response => response));
+  }
+  getAllZoneByRole() {
+    return this.http.get('api/common/getAllZoneByRole').pipe(map(response => response));
+  }
+  getAllSiteByZone(zone: string, byUser: string) {
+    return this.http.get('api/common/getAllSiteByZone', { params: { zone: zone, byUser: byUser } }).pipe(map(response => response));
+  }
+  getMudiriaSiteByZone(zone: string) {
+    return this.http.get('api/common/getMudiriaSiteByZone', { params: { zone: zone } }).pipe(map(response => response));
+  }
+  getNonMudiriaSiteByZone(zone: string) {
+    return this.http.get('api/common/getNonMudiriaSiteByZone', { params: { zone: zone } }).pipe(map(response => response));
+  }
+  getAllBank() {
+    return this.http.get('api/common/getAllBank').pipe(map(response => response));
+  }
+  getAllProfitType() {
+    return this.http.get('api/common/getAllProfitType').pipe(map(response => response));
+  }
+  getAllExpense() {
+    return this.http.get('api/common/getAllExpense').pipe(map(response => response));
+  }
+  getAllWorkStation() {
+    return this.http.get('api/common/getAllWorkStation').pipe(map(response => response));
+  }
+  getAllRole() {
+    return this.http.get('api/common/getAllRole').pipe(map(response => response));
+  }
+  convertToDateString(sDate: any) {
+    var dataType = typeof sDate;
+    if (dataType == "string" || sDate == null) {
+      return sDate;
+    }
+    return (sDate.getDate() < 10 ? '0' + sDate.getDate() : sDate.getDate()) + '/' + ((sDate.getMonth() + 1) 
+    < 10 ? '0' + (sDate.getMonth() + 1) : (sDate.getMonth() + 1)) + '/' + sDate.getFullYear();
+  }
+  convertToTimeString(sDate: any) {
+    var dataType = typeof sDate;
+    if (dataType == "string" || sDate == null) {
+      return sDate;
+    }
+    var date = new Date(sDate), hours = ("0" + date.getHours()).slice(-2), minutes = ("0" + date.getMinutes()).slice(-2);
+    return [hours, minutes].join(":");
+  }
+  convertToDateTimeString(sDate: any) {
+    var dataType = typeof sDate;
+    if (dataType == "string" || sDate == null) {
+      return sDate;
+    }
+    var time = new Date(sDate), hours = ("0" + time.getHours()).slice(-2), minutes = ("0" + time.getMinutes()).slice(-2);
+    var tm = [hours, minutes].join(":");
+    var dt = (sDate.getDate() < 10 ? '0' + sDate.getDate() : sDate.getDate()) + '/' + ((sDate.getMonth() + 1) 
+    < 10 ? '0' + (sDate.getMonth() + 1) : (sDate.getMonth() + 1)) + '/' + sDate.getFullYear();
+    return dt + ' ' + tm;
+  }
+  convertDateToString(sDate: any) {
+    if (sDate == null) {
+      return sDate;
+    }
+    var d = new Date(sDate);
+    sDate = [('0' + d.getDate()).slice(-2), ('0' + (d.getMonth() + 1)).slice(-2), d.getFullYear()].join('/');
+    return sDate;
+  }
+  addMin(sDate: any, min: number) {
+    var time = new Date(sDate);
+    time.setTime(time.getTime() + min * 60 * 1000);
+    return time;
+  }
+  getMin(sDate: any) {
+    var time = new Date(sDate);
+    return time.getHours() * 60 + time.getMinutes();
+  }
+}
+
+```
+> **FormService**
+
+```ts
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators'
+
+@Injectable()
+export class FormService {
+  constructor(private http: HttpClient) {
+  }
+
+  getFormInfo(formCode: string) {
+    return this.http.get('api/getFormInfo', { params: { formCode: formCode } }).pipe(map(response => response));
+  }
+
+  getFormLabel(formCode: string) {
+    return this.http.get('api/getFormLabel', { params: { formCode: formCode } }).pipe(map(response => response));
+  }
+
+  getFormPermission(formCode: string) {
+    return this.http.get('/api/getPermission', { params: { formCode: formCode } }).pipe(map(response => response));
+  }
+  getAllMessage(msgCode: string) {
+   return this.http.get('/api/getAllMessage', { params: { msgCode: msgCode } }).pipe(map(response => response));
+  }
+
+}
+
+```
+> **Form Service **
+
+```ts
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators'
+
+@Injectable()
+export class FormService {
+  constructor(private http: HttpClient) {
+  }
+
+  getFormInfo(formCode: string) {
+    return this.http.get('api/getFormInfo', { params: { formCode: formCode } }).pipe(map(response => response));
+  }
+
+  getFormLabel(formCode: string) {
+    return this.http.get('api/getFormLabel', { params: { formCode: formCode } }).pipe(map(response => response));
+  }
+
+  getFormPermission(formCode: string) {
+    return this.http.get('/api/getPermission', { params: { formCode: formCode } }).pipe(map(response => response));
+  }
+  getAllMessage(msgCode: string) {
+   return this.http.get('/api/getAllMessage', { params: { msgCode: msgCode } }).pipe(map(response => response));
+  }
+}
+
+```
+> **Common Controller**
+```cs
+using BloodBankDAL;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using System.Linq;
+using System.Transactions;
+
+namespace BloodBank.Controllers
+{
+    public class CommonController : Controller
+    {
+        private readonly CommonDAL commonDal;
+
+        public CommonController(IConfiguration configuration)
+        {
+            commonDal = new CommonDAL(configuration);
+        }
+
+        [HttpGet("/api/common/editFormLabel")]
+        public IActionResult EditFormLabel(string formCode)
+        {
+            if (!HttpContext.Session.Keys.Any()) return Unauthorized();
+            var formLabel = commonDal.EditFormLabel(formCode);
+            return Ok(formLabel);
+        }
+
+        [HttpPost("/api/common/updateFormLabel")]
+        public IActionResult UpdateFormLabel([FromBody] dynamic t01200)
+        {
+            if (!HttpContext.Session.Keys.Any()) return Unauthorized();
+            if (HttpContext.Session.GetString("ROLE_CODE") != "0001") return Unauthorized();
+            var t01200Update = false;
+            using (var trans = new TransactionScope())
+            {
+                foreach (var data in t01200)
+                {
+                    t01200Update = commonDal.UpdateFormLabel(data.T_FORM_CODE.ToString(), data.T_LABEL_NAME.ToString(),
+                    data.T_LANG1_TEXT.ToString(), data.T_LANG2_TEXT.ToString());
+                    if (!t01200Update)
+                        break;
+                }
+                if (t01200Update)
+                    trans.Complete();
+                else
+                    return BadRequest(new { msg = "فشلت عملية الحفظ" });
+            }
+            var formLabel = commonDal.GetFormLabel(t01200[0].T_FORM_CODE.ToString(), HttpContext.Session.GetString("USER_LANG"));
+            return Created("", formLabel);
+        }
+    }
+}
+```
+
