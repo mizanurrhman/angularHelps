@@ -1302,35 +1302,7 @@ export class FormService {
 }
 
 ```
-> **Form Service **
 
-```ts
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators'
-
-@Injectable()
-export class FormService {
-  constructor(private http: HttpClient) {
-  }
-
-  getFormInfo(formCode: string) {
-    return this.http.get('api/getFormInfo', { params: { formCode: formCode } }).pipe(map(response => response));
-  }
-
-  getFormLabel(formCode: string) {
-    return this.http.get('api/getFormLabel', { params: { formCode: formCode } }).pipe(map(response => response));
-  }
-
-  getFormPermission(formCode: string) {
-    return this.http.get('/api/getPermission', { params: { formCode: formCode } }).pipe(map(response => response));
-  }
-  getAllMessage(msgCode: string) {
-   return this.http.get('/api/getAllMessage', { params: { msgCode: msgCode } }).pipe(map(response => response));
-  }
-}
-
-```
 > **Common Controller**
 ```cs
 using BloodBankDAL;
