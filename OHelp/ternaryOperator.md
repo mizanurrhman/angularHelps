@@ -10,7 +10,8 @@ const person = {name: 'Becky',gender: null}
  
 `const gender = person.gender ?? 'Unknown gender'` OutPut: Unknown gender 
 
-* Assign Value 
-`const name = person.name=="Becky" ? 'This is Becky' :'I am not Becky '` OutPut: `his is Becky`
+* Get conditional value  
+
+`const name = person.name=='Becky' ? 'This is Becky' :'I am not Becky '` OutPut: `This is Becky`
 
    
