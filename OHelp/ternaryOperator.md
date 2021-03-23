@@ -9,4 +9,8 @@ const person = {name: 'Becky',gender: null}
  * Value is not present 
  
 `const gender = person.gender ?? 'Unknown gender'` OutPut: Unknown gender 
+
+* Assign Value 
+`const name = person.name=="Becky" ? 'This is Becky' :'I am not Becky '` OutPut: `his is Becky`
+
    
