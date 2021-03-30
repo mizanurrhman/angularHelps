@@ -43,3 +43,6 @@
 ```
 
 ![Loding...](https://github.com/mizanurrhman/angularHelps/blob/main/Images/ShowLoadingHtm.JPG "OutPut")
+
+![Loding...](https://github.com/mizanurrhman/angularHelps/blob/main/Images/SimpleTAT.png "SimpleTAT")
+
