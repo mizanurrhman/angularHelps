@@ -44,5 +44,7 @@
 
 ![Loding...](https://github.com/mizanurrhman/angularHelps/blob/main/Images/ShowLoadingHtm.JPG "OutPut")
 
+> Auto Loading Data 
+
 ![Loding...](https://github.com/mizanurrhman/angularHelps/blob/main/Images/SimpleTAT.png "SimpleTAT")
 
