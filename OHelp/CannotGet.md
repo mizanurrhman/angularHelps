@@ -17,3 +17,11 @@ npm install --save-dev @angular/cli@latest`
 npm install -g  @angular/cli@latest 
 ng serve
 ```
+> Bootstrap
+Error : Cannot find module '@schematics/angular/utility/parse-name'
+```
+npm cache clean
+npm install @schematics/angular@12.0.4
+```
+* Worked `ng add @ng-bootstrap/ng-bootstrap`      
+
