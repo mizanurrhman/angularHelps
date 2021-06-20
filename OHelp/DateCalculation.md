@@ -47,3 +47,41 @@ onDatePastFuture(startingDate: Date, rangeDay: any) {
 **OutPut** *`Thu Jan 07 2021 00:00:00 GMT+0800 (Singapore Standard Time)`*
 
 > *format date* **`String.Format("{0:0.00}"`**
+
+
+
+
+> Date Difference JScript
+```js
+$('#btnPrint').click(function () {
+                var df = $('#txtDateFromE').val().split('/');
+                var dt = $('#txtDateToE').val().split('/');
+
+                var dff = new Date(df[2], df[1] - 1, df[0]);
+                var dtt = new Date(dt[2], dt[1] - 1, dt[0]);
+
+                if (dtt - dff > 90) {
+                    alert('Date shoud not greater thna 90 ');
+                    return;
+                } else {
+                    alert('wrong');
+                }
+            });
+            
+```
+> Date Format dd/MM/yyyy
+```js
+function isDDMMYYYY(inputDate) {
+    var reg = /(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d/;
+    if (inputDate.match(reg))
+        return true;
+        }
+        
+  $('#txtDateToE').change(function () {
+          if (!isDDMMYYYY($('#txtDateToE').val())) {
+              $('#txtDateToE').val('');
+              alert('Invalid Date Format');
+          }
+      });  
+        
+```
